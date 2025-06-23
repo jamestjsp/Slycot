@@ -5,7 +5,8 @@ requires = [
     "wheel",
     "scikit-build>=0.15",
     "cmake>=3.14",
-    "numpy >= 1.23.1"]
+    "numpy >= 1.23.1",
+    "delvewheel; sys_platform == 'win32'"]
 build-backend = "setuptools.build_meta"
 
 [project]

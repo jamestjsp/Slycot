@@ -649,6 +649,11 @@ set(GENERATED_MODULE
 
 
 set(CMAKE_Fortran_FLAGS )
+if(CMAKE_Fortran_COMPILER_ID MATCHES "GNU")
+    # Flags for gfortran compatibility with SLICOT's F77 code
+    # See https://github.com/python-control/Slycot/issues/138
+    set(CMAKE_Fortran_FLAGS "${CMAKE_Fortran_FLAGS} -fdefault-integer-8 -fdefault-real-8 -ff2c")
+endif()
 
 add_custom_target(wrapper ALL DEPENDS ${SLICOT_FSOURCE} ${SLYCOT_FSOURCE})
 add_custom_command(
